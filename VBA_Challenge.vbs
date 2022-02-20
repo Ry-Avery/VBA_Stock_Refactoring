@@ -6,19 +6,7 @@ Sub AllStocksAnalysisRefactored()
 
     startTime = Timer
     
-    'Format the output sheet on All Stocks Analysis worksheet
-    Worksheets("All Stocks Analysis").Activate
-    
-    Range("A1").Value = "All Stocks (" + yearValue + ")"
-    
-    'Create a header row
-    Cells(3, 1).Value = "Ticker"
-    Cells(3, 2).Value = "Total Daily Volume"
-    Cells(3, 3).Value = "Return"
-
-    'Initialize array of all tickers
     Dim tickers(12) As String
-    
     tickers(0) = "AY"
     tickers(1) = "CSIQ"
     tickers(2) = "DQ"
@@ -31,34 +19,42 @@ Sub AllStocksAnalysisRefactored()
     tickers(9) = "SPWR"
     tickers(10) = "TERP"
     tickers(11) = "VSLR"
+   'Initialized an array of all tickers
+    Dim tickerIndex As Single
+    tickerIndex=0
+    Dim tickerVolumes(12) as Long
+    Dim tickerStartingPrices(12) as Single
+    Dim tickerEndingPrices(12) as Single
+    Dim RowCount as Long
+    Dim t as Byte
+    Dim r as Long
+
+    Worksheets("All Stocks Analysis").Activate
     
-    'Activate data worksheet
+    Cells(1,1).Value = "All Stocks (" + yearValue + ")"
+    Cells(3, 1).Value = "Ticker"
+    Cells(3, 2).Value = "Total Daily Volume"
+    Cells(3, 3).Value = "Return"
+    'Created header row
+
     Worksheets(yearValue).Activate
     
-    'Get the number of rows to loop over
     RowCount = Cells(Rows.Count, "A").End(xlUp).Row
     
-    '1a) Create a ticker Index
-    
-
-    '1b) Create three output arrays   
-    
-    
     ''2a) Create a for loop to initialize the tickerVolumes to zero. 
-    
-        
+    For t=0 To 11
+        tickerVolumes(t)=0
+    Next t
     ''2b) Loop over all the rows in the spreadsheet. 
-    For i = 2 To RowCount
-    
+    For r = 2 To RowCount
         '3a) Increase volume for current ticker
-        
-        
+        tickerVolumes(tickerIndex)=tickerVolumes(tickerIndex)+Cells(r,8).Value
         '3b) Check if the current row is the first row with the selected tickerIndex.
-        'If  Then
+        If  Then
             
             
             
-        'End If
+        End If
         
         '3c) check if the current row is the last row with the selected ticker
          'If the next row’s ticker doesn’t match, increase the tickerIndex.
