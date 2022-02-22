@@ -56,13 +56,16 @@ Sub AllStocksAnalysisRefactored()
         If Cells(r, 1).Value = tickers(tickerIndex) Then
         'Looping through all rows in sheet and checking to see if sheet ticker matches tickerIndex
             tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(r, 8).Value
+            'Compiling the total volume for each ticker
             If Cells(r - 1, 1) <> tickers(tickerIndex) Then
                 tickerStartingPrices(tickerIndex) = Cells(r, 6).Value
             End If
+            'Getting the starting price for the year for the specific ticker
             If Cells(r + 1, 1) <> tickers(tickerIndex) Then
                 tickerEndingPrices(tickerIndex) = Cells(r, 6).Value
                 tickerIndex = tickerIndex + 1
             End If
+            'Getting the ending price and switching tickerIndex if next ticker value does not match the current one
         End If
     Next r
     
