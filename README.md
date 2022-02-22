@@ -36,8 +36,8 @@ Next r
 
 ### Runtime Comparaison
 - It is worth noting that while I had two different data sets, they had the same number of rows to loop through, so their runtime was about the same. Previously the runtime was just over 1.2 seconds, but now my code runs around the 100-millisecond mark. This makes my refactored code twelve times faster than before, which lines up with the code I changed as my original script looped over the data twelve times more than my current script.  
-![2017 runtime](/Public/VBA_Stock_Refractoring/Resources/VBA_Challenge_2017.PNG)
-![2018 runtime](/Public/VBA_Stock_Refractoring/Resources/VBA_Challenge_2018.PNG)
+![2017 runtime](/Resources/VBA_Challenge_2017.PNG)
+![2018 runtime](/Resources/VBA_Challenge_2018.PNG)
 
 ## **Summary**
 - **What are the advantages or disadvantages of refactoring code?**
